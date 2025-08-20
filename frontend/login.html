@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login • GlobeScholar</title><link rel="stylesheet" href="assets/css/style.css">
+</head><body class="auth dark">
+<div class="auth-box">
+  <h1>Welcome back</h1>
+  <div class="field"><label>Email</label><input id="email" type="email" placeholder="you@example.com"></div>
+  <div class="field"><label>Password</label><input id="password" type="password" placeholder="••••••••"></div>
+  <div id="error" class="error hidden"></div>
+  <button id="login-btn" class="btn primary">Log In</button>
+  <p class="muted center">No account? <a href="signup.html">Create one</a></p>
+</div>
+<script src="assets/js/api.js"></script>
+<script>
+const emailEl=document.getElementById('email'); const passEl=document.getElementById('password'); const errEl=document.getElementById('error');
+document.getElementById('login-btn').addEventListener('click', async ()=>{
+  errEl.classList.add('hidden');
+  try{
+    const res = await api.post('/auth/login', {email: emailEl.value.trim(), password: passEl.value.trim()});
+    localStorage.setItem('token', res.access_token); localStorage.setItem('first_name', res.first_name); localStorage.setItem('user_id', res.user_id);
+    window.location.href='index.html';
+  }catch(e){ errEl.textContent = e.message || 'Login failed'; errEl.classList.remove('hidden'); }
+});
+</script></body></html>

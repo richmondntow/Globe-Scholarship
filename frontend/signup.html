@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sign Up • GlobeScholar</title><link rel="stylesheet" href="assets/css/style.css">
+</head><body class="auth dark">
+<div class="auth-box">
+  <h1>Create account</h1>
+  <div class="grid-2">
+    <div class="field"><label>First name</label><input id="first"></div>
+    <div class="field"><label>Last name</label><input id="last"></div>
+  </div>
+  <div class="field"><label>Email</label><input id="email" type="email"></div>
+  <div class="grid-2">
+    <div class="field"><label>Password</label><input id="password" type="password"></div>
+    <div class="field"><label>Confirm</label><input id="confirm" type="password"></div>
+  </div>
+  <div id="error" class="error hidden"></div><div id="success" class="success hidden"></div>
+  <button id="signup-btn" class="btn primary">Create account</button>
+  <p class="muted center">Already have an account? <a href="login.html">Log in</a></p>
+</div>
+<script src="assets/js/api.js"></script>
+<script>
+const q=id=>document.getElementById(id); const err=q('error'); const ok=q('success');
+q('signup-btn').addEventListener('click', async ()=>{
+  err.classList.add('hidden'); ok.classList.add('hidden');
+  const payload={first_name:q('first').value.trim(),last_name:q('last').value.trim(),email:q('email').value.trim(),password:q('password').value,confirm_password:q('confirm').value};
+  if(!payload.first_name||!payload.last_name||!payload.email||!payload.password||!payload.confirm_password){err.textContent='Please fill in all fields.';err.classList.remove('hidden');return;}
+  if(payload.password.length<6){err.textContent='Password must be at least 6 characters.';err.classList.remove('hidden');return;}
+  if(payload.password!==payload.confirm_password){err.textContent='Passwords do not match.';err.classList.remove('hidden');return;}
+  try{ await api.post('/auth/signup', payload); ok.textContent='Account created. Redirecting to login...'; ok.classList.remove('hidden'); setTimeout(()=>window.location.href='login.html', 900);}catch(e){ err.textContent=e.message||'Signup failed.'; err.classList.remove('hidden'); }
+});
+</script></body></html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Globe Scholarship Access</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<script src="https://d3js.org/d3.v6.min.js"></script>
+<script src="https://unpkg.com/topojson@3"></script>
+</head><body class="dark">
+<header class="topbar"><div class="brand">GlobeScholar</div>
+<nav class="nav">
+  <a class="link" href="saved.html">Saved</a>
+  <div class="search"><input id="search-input" placeholder="Search by country"><button id="search-btn">Search</button></div>
+  <span id="welcome" class="welcome"></span>
+  <button id="logout-btn" class="btn ghost">Logout</button>
+</nav></header>
+<main id="app">
+  <button id="toggle-rotation" class="btn primary small">Pause Rotation</button>
+  <svg id="globe"></svg><div id="tooltip" class="tooltip"></div>
+  <section id="scholarship-list" class="card list hidden"></section>
+</main>
+<script src="assets/js/api.js"></script>
+<script src="assets/js/dashboard.js"></script>
+</body></html>
