@@ -1,4 +1,5 @@
-# Globe Scholarship Pro
+
+GlobeScholarship AI-POWERED SEARCH ENGINE PROGRAM
 GlobeScholarship Access is an interactive platform that visualizes global scholarship availability through a 3D spinning globe.
 It allows students to search for scholarships by country, save opportunities, and manage their profiles.
 Built with FastAPI for the backend and HTML/CSS/JavaScript (D3.js + Three.js) for the frontend.
