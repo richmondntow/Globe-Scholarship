@@ -1,0 +1,2 @@
+BETTER_AUTH_SECRET=generate-a-random-secret-of-at-least-32-characters
+BETTER_AUTH_ALLOW_LOCAL=true

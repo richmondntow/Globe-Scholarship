@@ -1,8 +1,8 @@
-import { getChatGPTUser } from '../../chatgpt-auth';
+import { getSiteUser } from '../../../lib/auth';
 import { database } from '../../../db/store';
 import { validWrite, json } from '../../../lib/security';
-export async function GET() {
- const user = await getChatGPTUser(); if (!user) return json({error:'Sign in to access your profile.'},401);
+export async function GET(request:Request) {
+ const user = await getSiteUser(request.headers); if (!user) return json({error:'Sign in to access your profile.'},401);
  try {
   const db=database();
   const profile=await db.prepare('SELECT name, nationality, level, field FROM profiles WHERE user_id = ?').bind(user.userId).first();
@@ -11,7 +11,7 @@ export async function GET() {
  } catch(e) {console.error('account unavailable',e);return json({error:'Your profile could not be loaded. Please try again.'},503);}
 }
 export async function PUT(request:Request) {
- const user=await getChatGPTUser();if(!user)return json({error:'Sign in to update your profile.'},401);
+ const user=await getSiteUser(request.headers);if(!user)return json({error:'Sign in to update your profile.'},401);
  if(!validWrite(request))return json({error:'Invalid request.'},403);
  try {
   const body=await request.json() as Record<string,unknown>;

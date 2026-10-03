@@ -1,14 +1,14 @@
-import { getChatGPTUser } from '../../chatgpt-auth';
+import { getSiteUser } from '../../../lib/auth';
 import { database } from '../../../db/store';
 import { scholarships } from '../../../lib/catalog';
 import { validWrite,json } from '../../../lib/security';
-export async function GET() {
- const user=await getChatGPTUser();if(!user)return json({error:'Sign in to see your saved scholarships.'},401);
+export async function GET(request:Request) {
+ const user=await getSiteUser(request.headers);if(!user)return json({error:'Sign in to see your saved scholarships.'},401);
  try{const data=await database().prepare('SELECT scholarship_id,saved_at FROM saved_scholarships WHERE user_id = ? ORDER BY saved_at DESC').bind(user.userId).all();return json({saved:data.results});}
  catch(e){console.error(e);return json({error:'Saved scholarships are temporarily unavailable.'},503);}
 }
 async function mutate(request:Request,remove:boolean){
- const user=await getChatGPTUser();if(!user)return json({error:'Sign in to save scholarships.'},401);
+ const user=await getSiteUser(request.headers);if(!user)return json({error:'Sign in to save scholarships.'},401);
  if(!validWrite(request))return json({error:'Invalid request.'},403);
  let id:unknown;try{id=(await request.json() as {id:unknown}).id;}catch{return json({error:'Invalid scholarship.'},400);}
  if(typeof id!=='string'||!scholarships.some(x=>x.id===id))return json({error:'Scholarship not found.'},404);

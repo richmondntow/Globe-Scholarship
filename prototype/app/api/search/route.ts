@@ -1,6 +1,8 @@
+import { getSiteUser } from '../../../lib/auth';
 import { searchScholarships } from '../../../lib/search';
 import { json,validWrite } from '../../../lib/security';
 export async function POST(request:Request){
+ if(!await getSiteUser(request.headers))return json({error:'Log in to search scholarships.'},401);
  if(!validWrite(request))return json({error:'Invalid request.'},403);
  try{
  const body=await request.json() as Record<string,unknown>;

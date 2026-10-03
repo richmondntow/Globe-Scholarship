@@ -2,7 +2,7 @@
 
 [Open the public prototype](https://globescholarship-ai.richmondntow303.chatgpt.site)
 
-The working interactive product is in [`prototype/`](prototype/). Explore the globe, search scholarship opportunities, read funding and eligibility details, and sign in with ChatGPT to save scholarships or update your profile.
+The working interactive product is in [`prototype/`](prototype/). Explore the globe, search scholarship opportunities, read funding and eligibility details, and create an email/password account to access the platform, save scholarships, or update your profile. Registration is open to everyone without owner approval.
 
 ## Repository layout
 
@@ -30,6 +30,6 @@ The prototype searches a curated catalog reviewed on 3 October 2026. Its AI sear
 
 ## Validation
 
-Type checking and the production build passed. The local Worker passed 22 integration checks for search intent, filters, anonymous request rejection, per-account save isolation, idempotent saving, save/unsave persistence, and profile persistence. Browser checks covered globe selection, search, opportunity details, and sign-in prompts. Actual hosted OAuth login was not exercised by the local tests.
+Type checking and the production build passed. The local Worker passed 45 integration checks for search intent, filters, anonymous request rejection, per-account save isolation, idempotent saving, save/unsave persistence, and profile persistence. Browser checks covered globe selection, search, opportunity details, and sign-in prompts. Local checks use real signup/login requests and session cookies, including revoked sessions and login rate limiting. Production registration was not exercised by local tests.
 
 The source contains no application credentials or user databases. Profiles and saved scholarships stay private to each signed-in account even though the website is public.
