@@ -1,0 +1,466 @@
+[
+  {
+    "id": "chevening",
+    "title": "Chevening Scholarship",
+    "provider": "UK Government",
+    "country": "United Kingdom",
+    "countryCode": "GB",
+    "levels": [
+      "Master’s"
+    ],
+    "funding": "Full funding",
+    "amount": "Tuition + living costs",
+    "description": "A one-year taught master’s scholarship for emerging leaders who want to create lasting change in their home countries.",
+    "eligibility": [
+      "Citizenship of a Chevening-eligible country",
+      "Undergraduate degree and required post-graduation work experience",
+      "Return to your home country for at least two years after the award"
+    ],
+    "benefits": [
+      "University tuition, subject to programme limits",
+      "Monthly living allowance",
+      "Travel and eligible arrival costs"
+    ],
+    "deadline": "6 Oct 2026 · 11:00 UTC",
+    "deadlineDate": "2026-10-06T11:00:00Z",
+    "url": "https://www.chevening.org/scholarships/",
+    "fields": [
+      "All fields"
+    ],
+    "note": "MBA tuition is subject to a fee cap. Review the current eligibility rules before applying.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "daad-epos",
+    "title": "DAAD Development-Related Postgraduate Courses",
+    "provider": "German Academic Exchange Service",
+    "country": "Germany",
+    "countryCode": "DE",
+    "levels": [
+      "Master’s",
+      "PhD"
+    ],
+    "funding": "Full funding",
+    "amount": "Stipend + study support",
+    "description": "Postgraduate study in development-related programmes, connecting professional experience with sustainable economic and social progress.",
+    "eligibility": [
+      "Graduates from eligible developing or newly industrialised countries",
+      "At least two years of professional experience",
+      "Meet the selected course’s academic and language requirements"
+    ],
+    "benefits": [
+      "Monthly scholarship payment",
+      "Insurance and travel support",
+      "Additional benefits depend on the programme"
+    ],
+    "deadline": "Varies by course",
+    "deadlineDate": null,
+    "url": "https://www2.daad.de/deutschland/stipendium/datenbank/en/21148-scholarship-database?detail=50076777",
+    "fields": [
+      "Engineering",
+      "Economics",
+      "Public policy",
+      "Environmental science"
+    ],
+    "note": "",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "ubc",
+    "title": "UBC International Scholars Program",
+    "provider": "University of British Columbia",
+    "country": "Canada",
+    "countryCode": "CA",
+    "levels": [
+      "Undergraduate"
+    ],
+    "funding": "Need-based",
+    "amount": "Award based on financial need",
+    "description": "For exceptional international school leavers with strong academics, community leadership, and significant financial need.",
+    "eligibility": [
+      "Enter directly from an accredited secondary school",
+      "First undergraduate degree; study permit required",
+      "2027 applicants: high school graduation no earlier than June 2026",
+      "School nomination and demonstrated financial need"
+    ],
+    "benefits": [
+      "Financial support based on assessed need",
+      "Dedicated academic and personal advising",
+      "Leadership and community opportunities"
+    ],
+    "deadline": "15 Nov 2026",
+    "deadlineDate": "2026-11-15T23:59:59Z",
+    "url": "https://you.ubc.ca/financial-planning/scholarships-awards-international-students/international-scholars/",
+    "fields": [
+      "All fields"
+    ],
+    "note": "Applications open 5 October 2026. Certain degree programmes are excluded; see the official page.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "pearson",
+    "title": "Lester B. Pearson International Scholarship",
+    "provider": "University of Toronto",
+    "country": "Canada",
+    "countryCode": "CA",
+    "levels": [
+      "Undergraduate"
+    ],
+    "funding": "Full funding",
+    "amount": "Four years of support",
+    "description": "An entrance scholarship recognising outstanding academic achievement, creativity, and leadership among international students.",
+    "eligibility": [
+      "International student beginning studies in September 2027",
+      "Final year of secondary school or graduated no earlier than June 2026",
+      "Nomination by your current secondary school",
+      "Students already in post-secondary study are ineligible"
+    ],
+    "benefits": [
+      "Tuition and books",
+      "Incidental fees",
+      "Full residence support for four years"
+    ],
+    "deadline": "6 Nov 2026",
+    "deadlineDate": "2026-11-06T23:59:59Z",
+    "url": "https://future.utoronto.ca/pearson-scholarships",
+    "fields": [
+      "All fields"
+    ],
+    "note": "School nomination: 9 October 2026. Admission application: 16 October 2026. Use the official deadline timezone.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "kaist",
+    "title": "KAIST International Undergraduate Scholarship",
+    "provider": "KAIST",
+    "country": "South Korea",
+    "countryCode": "KR",
+    "levels": [
+      "Undergraduate"
+    ],
+    "funding": "Full tuition",
+    "amount": "Tuition + ₩350,000/month",
+    "description": "Study science, engineering, and technology at KAIST with tuition support and a monthly living allowance.",
+    "eligibility": [
+      "Apply through International Student Admission",
+      "Meet KAIST admission requirements",
+      "Maintain the required GPA after the first year"
+    ],
+    "benefits": [
+      "Tuition exemption for eight semesters",
+      "Monthly living allowance",
+      "Medical health insurance"
+    ],
+    "deadline": "Same as admission round",
+    "deadlineDate": null,
+    "url": "https://admission.kaist.ac.kr/intl-undergraduate/support/scholarships/kaist",
+    "fields": [
+      "Computer science",
+      "Engineering",
+      "Science"
+    ],
+    "note": "Select KAIST Scholarship on the admission application. Full tuition does not necessarily cover all living expenses.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "gks",
+    "title": "Global Korea Scholarship",
+    "provider": "Government of the Republic of Korea",
+    "country": "South Korea",
+    "countryCode": "KR",
+    "levels": [
+      "Undergraduate",
+      "Master’s",
+      "PhD"
+    ],
+    "funding": "Full funding",
+    "amount": "Government study support",
+    "description": "International degree opportunities at participating Korean universities, with embassy and university application tracks.",
+    "eligibility": [
+      "Citizenship, age, and academic requirements depend on the annual call",
+      "Choose an eligible participating university and department",
+      "Apply through the correct embassy or university track"
+    ],
+    "benefits": [
+      "Tuition support",
+      "Study and living support under the annual guidelines",
+      "Korean language training where applicable"
+    ],
+    "deadline": "Varies by track and country",
+    "deadlineDate": null,
+    "url": "https://www.studyinkorea.go.kr/en_US/plan/scholarship.do?tab=gks-tab4",
+    "fields": [
+      "All fields"
+    ],
+    "note": "Check the current annual call for exact coverage, eligible countries, and deadlines.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "fulbright",
+    "title": "Fulbright Foreign Student Program",
+    "provider": "Fulbright / U.S. Department of State",
+    "country": "United States",
+    "countryCode": "US",
+    "levels": [
+      "Master’s",
+      "PhD"
+    ],
+    "funding": "Varies",
+    "amount": "Country-specific grant",
+    "description": "Graduate study and research in the United States for students, young professionals, and artists from participating countries.",
+    "eligibility": [
+      "Non-U.S. applicants from participating countries",
+      "Eligibility and selection vary by home country",
+      "Apply through your Fulbright commission or U.S. embassy"
+    ],
+    "benefits": [
+      "Grant terms depend on your country and award",
+      "Graduate study or research opportunity",
+      "International academic exchange"
+    ],
+    "deadline": "Varies by home country",
+    "deadlineDate": null,
+    "url": "https://foreign.fulbrightonline.org/about/foreign-student-program",
+    "fields": [
+      "All fields"
+    ],
+    "note": "Current U.S. residency or enrollment may affect eligibility. Check your home-country programme.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "mext-undergrad",
+    "title": "MEXT Undergraduate Scholarship",
+    "provider": "Japanese Government",
+    "country": "Japan",
+    "countryCode": "JP",
+    "levels": [
+      "Undergraduate"
+    ],
+    "funding": "Full funding",
+    "amount": "Tuition + monthly stipend",
+    "description": "Government-funded undergraduate study in Japan, usually including Japanese language preparation.",
+    "eligibility": [
+      "Generally under 25 and completed 12 years of schooling",
+      "Meet the current nationality and academic conditions",
+      "Pass required screening and examinations"
+    ],
+    "benefits": [
+      "Tuition exemption",
+      "Monthly stipend",
+      "Eligible round-trip airfare"
+    ],
+    "deadline": "Check your Japanese embassy",
+    "deadlineDate": null,
+    "url": "https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/",
+    "fields": [
+      "Science",
+      "Engineering",
+      "Humanities",
+      "Social sciences"
+    ],
+    "note": "Embassy and university recommendation tracks have different requirements; follow the latest guidelines.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "mext-research",
+    "title": "MEXT Research Student Scholarship",
+    "provider": "Japanese Government",
+    "country": "Japan",
+    "countryCode": "JP",
+    "levels": [
+      "Master’s",
+      "PhD"
+    ],
+    "funding": "Full funding",
+    "amount": "Tuition + research stipend",
+    "description": "Support for international research students pursuing graduate-level work at Japanese universities.",
+    "eligibility": [
+      "Generally under 35",
+      "Eligible for a Japanese graduate programme",
+      "Meet embassy or university recommendation requirements"
+    ],
+    "benefits": [
+      "Tuition exemption",
+      "Monthly scholarship payment",
+      "Eligible round-trip airfare"
+    ],
+    "deadline": "Varies by recommendation track",
+    "deadlineDate": null,
+    "url": "https://www.studyinjapan.go.jp/en/planning/scholarships/mext-scholarships/",
+    "fields": [
+      "All fields"
+    ],
+    "note": "Confirm eligible fields and the current call through your embassy or host university.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "australia-awards",
+    "title": "Australia Awards Scholarships",
+    "provider": "Australian Government / DFAT",
+    "country": "Australia",
+    "countryCode": "AU",
+    "levels": [
+      "Undergraduate",
+      "Master’s"
+    ],
+    "funding": "Full funding",
+    "amount": "Tuition + living support",
+    "description": "Study at participating Australian institutions and build skills connected to your home country’s development priorities.",
+    "eligibility": [
+      "Be from an eligible participating country",
+      "Meet country-specific priority fields and conditions",
+      "Return home for the required period after the award"
+    ],
+    "benefits": [
+      "Full tuition fees",
+      "Return air travel",
+      "Contribution to living expenses and health cover"
+    ],
+    "deadline": "Varies by participating country",
+    "deadlineDate": null,
+    "url": "https://www.dfat.gov.au/people-to-people/australia-awards/australia-awards-scholarships",
+    "fields": [
+      "Development",
+      "Public policy",
+      "Engineering",
+      "Health"
+    ],
+    "note": "Study levels and available disciplines depend on the applicant’s country.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "schwarzman",
+    "title": "Schwarzman Scholars",
+    "provider": "Tsinghua University",
+    "country": "China",
+    "countryCode": "CN",
+    "levels": [
+      "Master’s"
+    ],
+    "funding": "Full funding",
+    "amount": "One-year funded master’s",
+    "description": "A residential master’s in global affairs focused on leadership, China, and international understanding.",
+    "eligibility": [
+      "Complete an undergraduate degree before enrollment",
+      "Meet the published age requirements",
+      "Demonstrate leadership and English proficiency"
+    ],
+    "benefits": [
+      "Tuition and fees",
+      "Room and board",
+      "Programme travel and study support"
+    ],
+    "deadline": "Next global cycle: Apr–Sep 2027",
+    "deadlineDate": null,
+    "url": "https://www.schwarzmanscholars.org/about/",
+    "fields": [
+      "Global affairs",
+      "Leadership",
+      "Public policy",
+      "Business"
+    ],
+    "note": "The 2027–2028 intake application window is closed. The next global cycle is April–September 2027 for August 2028 enrollment.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "eth-esop",
+    "title": "ETH Excellence Scholarship & Opportunity Programme",
+    "provider": "ETH Zurich",
+    "country": "Switzerland",
+    "countryCode": "CH",
+    "levels": [
+      "Master’s"
+    ],
+    "funding": "Full funding",
+    "amount": "CHF 13,500/semester + tuition waiver",
+    "description": "Master’s support for academically excellent students, with mentorship and access to the ETH network.",
+    "eligibility": [
+      "Apply to an eligible ETH master’s programme",
+      "Excellent bachelor’s results, typically top 10%",
+      "Submit the required pre-proposal and recommendations"
+    ],
+    "benefits": [
+      "Living and study allowance",
+      "Tuition fee waiver",
+      "Mentoring through the ETH Foundation"
+    ],
+    "deadline": "First master’s application window",
+    "deadlineDate": null,
+    "url": "https://ethz.ch/students/en/studies/financial/scholarships/excellencescholarship.html",
+    "fields": [
+      "Computer science",
+      "Engineering",
+      "Science"
+    ],
+    "note": "For autumn 2027 onward, the living and study allowance is CHF 13,500 per semester. Current ETH master’s students and existing master’s degree holders are ineligible.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "knight-hennessy",
+    "title": "Knight-Hennessy Scholars",
+    "provider": "Stanford University",
+    "country": "United States",
+    "countryCode": "US",
+    "levels": [
+      "Master’s",
+      "PhD"
+    ],
+    "funding": "Full funding",
+    "amount": "Up to three years of support",
+    "description": "Graduate study at Stanford with multidisciplinary leadership development and a global community of scholars.",
+    "eligibility": [
+      "Apply separately to Knight-Hennessy and an eligible Stanford graduate degree",
+      "Meet the published undergraduate-degree timing requirement",
+      "Demonstrate independence of thought, leadership, and civic commitment"
+    ],
+    "benefits": [
+      "Tuition and associated fees",
+      "Living and academic stipend",
+      "Annual travel support"
+    ],
+    "deadline": "Check the current application window",
+    "deadlineDate": null,
+    "url": "https://knight-hennessy.stanford.edu/program-overview/funding",
+    "fields": [
+      "All fields"
+    ],
+    "note": "Funding beyond three years depends on the graduate programme. Separate admission deadlines apply.",
+    "checked": "2026-10-03"
+  },
+  {
+    "id": "mpower",
+    "title": "MPOWER Global Citizen Scholarship",
+    "provider": "MPOWER Financing",
+    "country": "United States",
+    "countries": [
+      "United States",
+      "Canada"
+    ],
+    "countryCode": "US",
+    "levels": [
+      "Undergraduate",
+      "Master’s",
+      "PhD"
+    ],
+    "funding": "Partial funding",
+    "amount": "Competitive cash awards",
+    "description": "Scholarship awards for international and DACA students enrolled at or accepted to an MPOWER-supported school in the United States or Canada.",
+    "eligibility": [
+      "Accepted or enrolled full-time at an MPOWER-supported school",
+      "International or DACA student with qualifying legal study status",
+      "Meet the current official terms"
+    ],
+    "benefits": [
+      "Cash award towards educational expenses",
+      "No MPOWER loan required to apply"
+    ],
+    "deadline": "31 Dec 2026 · 11:59 PM EST",
+    "deadlineDate": "2027-01-01T04:59:00Z",
+    "url": "https://www.mpowerfinancing.com/scholarships/global-citizen",
+    "fields": [
+      "All fields"
+    ],
+    "note": "Confirm that your institution appears on the supported-school list. Award amounts follow the current call.",
+    "checked": "2026-10-03"
+  }
+]

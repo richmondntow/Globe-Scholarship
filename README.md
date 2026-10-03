@@ -1,93 +1,35 @@
+# GlobeScholarship AI
 
-GlobeScholarship AI-POWERED SEARCH ENGINE PROGRAM
+[Open the public prototype](https://globescholarship-ai.richmondntow303.chatgpt.site)
 
-GlobeScholarship Access is an interactive platform that visualizes global scholarship availability through a 3D spinning globe.
-It allows students to search for scholarships by country, save opportunities, and manage their profiles.
-Built with FastAPI for the backend and HTML/CSS/JavaScript (D3.js + Three.js) for the frontend.
+The working interactive product is in [`prototype/`](prototype/). Explore the globe, search scholarship opportunities, read funding and eligibility details, and sign in with ChatGPT to save scholarships or update your profile.
 
- Features
-User Authentication
-Signup & Login on separate pages
-Secure password hashing & JWT authentication
-Redirect to login page after signup
-Scholarship Dashboard
-Interactive 3D spinning globe with country selection
-Dark, professional design with responsive layout
-Search for scholarships by country
-User Profile & Data
-Personalized greeting (Welcome, First Name)
-Navigation bar with:
-Profile
+## Repository layout
 
-How to Use
-Saved Scholarships
-Search
-Logout
-Database (SQLite)
-Stores user info (first name, last name, email, password)
-Saves user-selected scholarships
+| Folder | Contents |
+| --- | --- |
+| `prototype/` | Current deployed application: React/TypeScript, Three.js and D3 globe, search model, Worker API, and D1 storage |
+| `backend/` | Original GlobeScholarship Access FastAPI concept |
+| `frontend/` | Original HTML/CSS/JavaScript frontend |
+| `docs/original-concept.md` | Original project documentation |
 
-🛠️ Tech Stack
-Frontend: HTML, CSS, JavaScript, D3.js / Three.js
-Backend: FastAPI, SQLAlchemy, SQLite
-Auth: JWT authentication, bcrypt password hashing
-📂 Project Structure
-globe-scholarship/
-│── backend/
-│   ├── main.py              # FastAPI entry point
-│   ├── database.py          # SQLite + SQLAlchemy models
-│   ├── auth.py              # Signup/Login logic
-│   ├── schemas.py           # Pydantic models
-│   ├── requirements.txt     # Python dependencies
-│
-│── frontend/
-│   ├── index.html           # Login page
-│   ├── signup.html          # Signup page
-│   ├── dashboard.html       # Main dashboard w/ spinning globe
-│   ├── css/
-│   │   └── styles.css       # Styling
-│   ├── js/
-│   │   └── globe.js         # Globe visualization
-│   │   └── scripts.js       # Frontend logic (auth, nav, etc.)
-│
-└── README.md
-⚙️ Installation
-1. Clone the repo
-git clone https://github.com/richmondntow/globe-scholarship.git
-cd globe-scholarship
-2. Backend Setup
-Create a virtual environment and install dependencies:
-cd backend
-python -m venv venv
-source venv/bin/activate   # Mac/Linux
-venv\Scripts\activate      # Windows
+## Run the current prototype
 
-pip install -r requirements.txt
-Run the FastAPI server:
-uvicorn main:app --reload --port 5000
-Backend runs at: http://127.0.0.1:5000
+Node.js 22.13+ and the pinned pnpm version are required.
 
-3. Frontend Setup
-Open frontend/index.html in your browser.
-The frontend communicates with the backend via fetch API requests.
+```sh
+git clone https://github.com/richmondntow/Globe-Scholarship.git
+cd Globe-Scholarship/prototype
+pnpm install
+pnpm dev
+```
 
-🔑 API Routes
-POST /auth/signup – Register a new user
-POST /auth/login – Authenticate & receive JWT token
-GET /scholarships/{country} – Get scholarships for a country
-POST /scholarships/save – Save a scholarship to user’s profile
+See [the prototype README](prototype/README.md) for the production build, local database initialization, integration checks, authentication requirements, and deployment notes.
 
-🖥️ Usage
-Open signup.html → create an account.
-After signup, you’ll be redirected to index.html (login).
-Log in with your credentials.
-Access the dashboard with spinning globe + scholarship search.
-Save scholarships to your personal list.
+The prototype searches a curated catalog reviewed on 3 October 2026. Its AI search uses a compact trained TF-IDF / latent semantic analysis model; it does not perform live web crawling or determine eligibility. Each opportunity links to its official provider.
 
-📌 Notes
-Tokens are stored in localStorage for authentication.
-You can enhance the globe with real-time scholarship listings via APIs.
-Database defaults to SQLite (globe.db) but can be swapped for PostgreSQL/MySQL.
+## Validation
 
-📜 License
-MIT License – free to use & modify.
+Type checking and the production build passed. The local Worker passed 22 integration checks for search intent, filters, anonymous request rejection, per-account save isolation, idempotent saving, save/unsave persistence, and profile persistence. Browser checks covered globe selection, search, opportunity details, and sign-in prompts. Actual hosted OAuth login was not exercised by the local tests.
+
+The source contains no application credentials or user databases. Profiles and saved scholarships stay private to each signed-in account even though the website is public.
