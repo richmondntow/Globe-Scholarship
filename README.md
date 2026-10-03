@@ -4,10 +4,15 @@
 
 The working interactive product is in [`prototype/`](prototype/). Explore the globe, search scholarship opportunities, read funding and eligibility details, and create an email/password account to access the platform, save scholarships, or update your profile. Registration is open to everyone without owner approval.
 
+## Netlify migration
+
+A standard Next.js/PostgreSQL version is available in [`netlify-app/`](netlify-app/), with repository-root Netlify build configuration. It passed a production build, type checking, and 45 local integration checks. Netlify deployment is pending account access; no new Netlify URL has been verified yet. The existing prototype link above remains active. See [Netlify setup and validation](netlify-app/README.md).
+
 ## Repository layout
 
 | Folder | Contents |
 | --- | --- |
+| `netlify-app/` | Prepared Next.js application for Netlify, PostgreSQL migrations, and account/search/save validation |
 | `prototype/` | Current deployed application: React/TypeScript, Three.js and D3 globe, search model, Worker API, and D1 storage |
 | `backend/` | Original GlobeScholarship Access FastAPI concept |
 | `frontend/` | Original HTML/CSS/JavaScript frontend |
