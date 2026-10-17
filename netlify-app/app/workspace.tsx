@@ -6,6 +6,7 @@ import { Toaster } from '@/components/ui/sonner';
 import { toast as notify } from 'sonner';
 import { Globe2,Bookmark,UserRound,Sparkles,Search,MapPin,GraduationCap,CalendarDays,X,ExternalLink,Check,ShieldCheck,SlidersHorizontal,LoaderCircle,LogOut,Info } from 'lucide-react';
 import Globe from './globe';
+import WebDiscovery from './web-discovery';
 import { scholarships,destinations,levels,type Scholarship } from '../lib/catalog';
 import countryNames from '../data/countries.json';
 
@@ -27,6 +28,7 @@ export default function Workspace({user}:{user:{displayName:string;email:string}
  const [view,setView]=useState<View>('explore'),[draft,setDraft]=useState(''),[query,setQuery]=useState('');
  const [country,setCountry]=useState(''),[level,setLevel]=useState(''),[funding,setFunding]=useState('');
  const [deadlineFilter,setDeadlineFilter]=useState(''),[studentGpa,setStudentGpa]=useState('');
+ const [showWeb,setShowWeb]=useState(false);
  const [results,setResults]=useState<Result[]>(scholarships),[interpreted,setInterpreted]=useState<Interpreted>({country:'',level:'',funding:''});
  const [busy,setBusy]=useState(false),[error,setError]=useState(''),[accountError,setAccountError]=useState(''),[saved,setSaved]=useState<string[]>([]),[saving,setSaving]=useState<string[]>([]),[accountLoading,setAccountLoading]=useState(!!user);
  const [profile,setProfile]=useState<Profile>({name:'',nationality:'',level:'',field:''}),[profileBusy,setProfileBusy]=useState(false),[detail,setDetail]=useState<Result|null>(null),[authOpen,setAuthOpen]=useState(false),[aiOpen,setAiOpen]=useState(false),[limit,setLimit]=useState(5);
@@ -94,6 +96,8 @@ export default function Workspace({user}:{user:{displayName:string;email:string}
    <section className="search-workspace"><div className="workspace-heading"><div><span className="section-eyebrow">YOUR SCHOLARSHIP JOURNEY</span><h2>Where will you go next?</h2><p>Find support for the future you have in mind.</p></div><button className="info-button" aria-label="How AI search works" onClick={()=>setAiOpen(true)}><Info size={18}/></button></div>
     <form className="search-box" onSubmit={e=>{e.preventDefault();setQuery(draft.trim());setRefresh(n=>n+1)}}><div className="search-label"><Sparkles size={16}/>AI scholarship search <span>Ask in your own words</span></div><div className="search-input-row"><input aria-label="Describe the scholarship you want" maxLength={500} value={draft} onChange={e=>setDraft(e.target.value)} placeholder="e.g. Fully funded master’s in Germany"/><button className="primary" type="submit" disabled={busy}>{busy?<LoaderCircle size={17} className="spin"/>:<Search size={17}/>}Search</button></div></form>
     <div className="search-examples"><span>Try:</span>{['Undergraduate in Canada','Engineering in Korea','Fully funded master’s'].map(s=><button onClick={()=>example(s)} key={s}>{s}</button>)}</div>
+    <div className="web-search-entry"><button className="secondary" aria-expanded={showWeb} onClick={()=>setShowWeb(v=>!v)}><Sparkles size={16}/>{showWeb?'Close web search':'Find more on the web'}</button><span>Go beyond the curated catalog</span></div>
+    {showWeb&&<WebDiscovery preferences={{country,level,funding,...(studentGpa?{gpa:studentGpa}:{})}}/>}
     <div className="filters"><span className="filters-label"><SlidersHorizontal size={15}/>Refine</span><div className="filter-select"><Choice label="Study level" value={level} onChange={setLevel} options={levels} placeholder="All study levels"/></div><div className="filter-select"><Choice label="Funding type" value={funding} onChange={setFunding} options={['Full funding','Full tuition','Need-based','Partial funding','Varies']} placeholder="Any funding"/></div><div className="filter-select"><Choice label="Application deadline" value={deadlineFilter} onChange={setDeadlineFilter} options={['Upcoming','Past deadline','Unconfirmed']} placeholder="All deadlines"/></div><label className="gpa-filter">Your GPA (4.0 scale) <input aria-label="Your GPA on a 4.0 scale" type="number" min="0" max="4" step="0.01" value={studentGpa} onChange={e=>setStudentGpa(e.target.value)} placeholder="e.g. 3.50" /></label>{(query||country||level||funding||deadlineFilter||studentGpa)&&<button className="reset-filters" onClick={reset}>Reset</button>}</div>
     {studentGpa&&<p className="catalog-note">{validGpa?'GPA matching is informational: these scholarships do not publish a verified numerical minimum GPA in this catalog. No eligibility is assumed.':'Enter a GPA between 0.00 and 4.00.'}</p>}
     <div className="results-heading"><h3>{selectedCountry?selectedCountry:'Worldwide opportunities'}<span>{busy?'…':results.length}</span></h3><span className="curated-label"><Check size={13}/>Official sources</span></div>
