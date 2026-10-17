@@ -3,7 +3,7 @@ import { sql } from 'drizzle-orm';
 import { getSiteUser } from '../../../lib/auth';
 import { database } from '../../../db/store';
 import { json,validWrite } from '../../../lib/security';
-import { discoverScholarships,validateWebInput } from '../../../lib/web-search';
+import { discoverScholarships,validateWebInput,WebSearchError } from '../../../lib/web-search';
 
 export const maxDuration=60;
 // Atomic counters remain effective across concurrent serverless instances.
@@ -25,5 +25,8 @@ export async function POST(request:Request){
  try{
   if(!await consume('web-minute:'+user.userId,60000,3)||!await consume('web-day:'+user.userId,86400000,10)||!await consume('web-site-day',86400000,100))return json({error:'Web search limit reached. Try again later or search the catalog.'},429);
   return json(await discoverScholarships(input));
- }catch{return json({error:'Web search is temporarily unavailable. Try again or search the catalog.'},503);}
+ }catch(e){
+  console.warn('Scholarship web discovery failed:',e instanceof WebSearchError?e.code:'internal_or_incomplete');
+  return json({error:e instanceof WebSearchError?e.message:'Web search is temporarily unavailable. Try again or search the catalog.'},503);
+ }
 }

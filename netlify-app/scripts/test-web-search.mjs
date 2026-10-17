@@ -21,7 +21,9 @@ test('requires web search, disables response storage and handles provider failur
   process.env.OPENAI_API_KEY='fixture-only-not-a-real-key';
   globalThis.fetch=async(url,init)=>{assert.equal(url,'https://api.openai.com/v1/responses');const body=JSON.parse(init.body);assert.equal(body.store,false);assert.equal(body.tool_choice,'required');assert.equal(body.tools[0].type,'web_search');assert.equal(body.max_tool_calls,3);assert.equal(JSON.parse(body.input).preferences.query,'funding');return Response.json(fixture);};
   assert.equal((await discoverScholarships({query:'funding'})).sections.length,1);
-  globalThis.fetch=async()=>new Response('private provider details',{status:401});await assert.rejects(discoverScholarships({query:'funding'}),/Search provider unavailable/);
+  globalThis.fetch=async()=>new Response('private provider details',{status:401});await assert.rejects(discoverScholarships({query:'funding'}),/could not authenticate/);
+  globalThis.fetch=async()=>Response.json({error:{code:'insufficient_quota',message:'sensitive upstream details'}},{status:429});await assert.rejects(discoverScholarships({query:'funding'}),/no available quota/);
+  globalThis.fetch=async()=>Response.json({error:{code:'invalid_request_error',param:'max_tool_calls'}},{status:400});await assert.rejects(discoverScholarships({query:'funding'}),e=>e.code==='configuration_max_tool_calls'&&!e.message.includes('sensitive'));
   delete process.env.OPENAI_API_KEY;await assert.rejects(discoverScholarships({query:'funding'}),/not configured/);
  }finally{globalThis.fetch=oldFetch;if(oldKey===undefined)delete process.env.OPENAI_API_KEY;else process.env.OPENAI_API_KEY=oldKey;}
 });
