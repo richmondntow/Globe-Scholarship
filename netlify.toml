@@ -7,5 +7,8 @@
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
 
-# Next.js is handled by Netlify’s maintained OpenNext adapter.
+# Explicitly enable SSR/API packaging for the nested Next.js application.
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
 # @netlify/database enables native PostgreSQL provisioning and SQL migrations.
