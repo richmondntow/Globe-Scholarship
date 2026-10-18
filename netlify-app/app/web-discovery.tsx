@@ -17,7 +17,7 @@ export default function WebDiscovery({preferences}:{preferences:Omit<WebSearchIn
    <textarea id="web-query" required maxLength={500} rows={3} value={query} onChange={e=>setQuery(e.target.value)} placeholder="e.g. Fully funded computer science master’s scholarships in Germany for Ghanaian students"/>
    <button className="primary" disabled={busy||!query.trim()}>{busy?'Searching the web…':'Search the web'}</button>
   </form>
-  <div aria-live="polite" aria-busy={busy}>{busy&&<p role="status">Checking web sources. This may take up to 45 seconds.</p>}{error&&<p role="alert">{error}</p>}
+  <div aria-live="polite" aria-busy={busy}>{busy&&<p role="status">Checking web sources. This may take up to 25 seconds.</p>}{error&&<p role="alert">{error}</p>}
    {result&&<div className="web-findings"><h4>Findings for “{submitted}”</h4><p>Researched {new Date(result.searchedAt).toLocaleDateString()}. AI findings may contain errors. Confirm deadlines and requirements with the provider before applying. Web findings are separate from saved catalog scholarships.</p>
     {result.sections.map((section,i)=>{let cursor=0;const fragments=[];for(const [j,c] of section.citations.entries()){fragments.push(<span key={'text-'+j}>{section.text.slice(cursor,c.start)}</span>);fragments.push(<a key={'cite-'+j} href={c.url} target="_blank" rel="noopener noreferrer" title={c.title}>[{j+1}: {c.title}]</a>);cursor=c.end;}fragments.push(<span key="rest">{section.text.slice(cursor)}</span>);return <div className="web-answer" key={i}>{fragments}</div>;})}
    </div>}

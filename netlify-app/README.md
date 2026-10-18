@@ -37,9 +37,9 @@ Choose an available project name for a free `*.netlify.app` address. A custom do
 
 ### Live web discovery
 
-"Find more on the web" opens an explicit-submit OpenAI Responses `web_search` integration. Set `OPENAI_API_KEY` as a Netlify Functions secret. Optionally set `OPENAI_SEARCH_MODEL` (default `gpt-5-mini`). Never use a `NEXT_PUBLIC_` key. API billing is separate from ChatGPT subscriptions. Without a key, web search reports that it is not connected; catalog search still works.
+"Find more on the web" opens an explicit-submit OpenAI Responses `web_search` integration. Set `OPENAI_API_KEY` as a Netlify Functions secret. Optionally set `OPENAI_SEARCH_MODEL` (default `gpt-4.1-mini`). Never use a `NEXT_PUBLIC_` key. API billing is separate from ChatGPT subscriptions. Without a key, web search reports that it is not connected; catalog search still works.
 
-The UI discloses that only the typed query and selected destination, level, funding and optional GPA are sent to OpenAI. It does not send the account profile or session. Requests require account authentication and same-origin JSON. Atomic database counters limit requests to three per minute and ten per rolling day per account, plus 100 per rolling day site-wide. Provider calls have a 45-second timeout, three-tool-call maximum, bounded output, and disabled Responses storage. Provider error details stay server-side.
+The UI discloses that only the typed query and selected destination, level, funding and optional GPA are sent to OpenAI. It does not send the account profile or session. Requests require account authentication and same-origin JSON. Atomic database counters limit requests to three per minute and ten per rolling day per account, plus 100 per rolling day site-wide. Provider calls have a 25-second timeout, one-tool-call maximum, bounded output, and disabled Responses storage. Provider error details stay server-side.
 
 Results display clickable inline HTTPS source citations separately from catalog cards and saved scholarships. Unfinished and uncited responses are rejected. The prompt prefers official providers and unverified labels for unknown requirements; AI findings do not confirm accuracy, application status or eligibility. A real provider smoke test remains necessary after configuring the key.
 
