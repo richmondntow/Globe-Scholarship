@@ -1,8 +1,10 @@
-# GlobeScholarship AI
+# GlobeScholarship Access — Archived Prototype
 
-A working scholarship workspace based on GlobeScholarship Access.
+Live website: https://globescholarship-access-test.netlify.app/
 
-Live prototype: https://globescholarship-ai.richmondntow303.chatgpt.site
+The maintained production application is in [`netlify-app/`](../netlify-app/). See the [main project README](../README.md) for current features, AI web search, GPA information, and Netlify deployment instructions.
+
+This folder retains the original Sites prototype for historical reference. The technical details below describe that archived version, not the current Netlify application.
 
 ## Product
 
@@ -49,4 +51,4 @@ pnpm start
 
 Email verification and password reset email delivery are not configured in this prototype. Email is a login identifier, not proof of ownership. Users choose their own name and password and can sign up immediately. The API exposes only signup, login, logout, and session lookup. Existing platform-authenticated saved/profile rows are retained but are not automatically linked to new email accounts.
 
-The requested custom hostname `globescholarship-ai.richmondntow303.site` is registered with the host and is pending DNS verification. The current live URL remains the one listed above until verification completes.
+Production hosting has moved to Netlify. Use the live website linked above; the original Sites address forwards visitors to the Netlify application.
