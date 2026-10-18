@@ -28,9 +28,9 @@ export function extractDiscovered(result:WebSearchResult):Scholarship[]{
    if(scholarships.some(s=>identityKey(s)===key||canonicalSource(s.url)===url))continue;
    const level=field('Study level');const funding=field('Funding');
    records.push({id:'ai-'+createHash('sha256').update(key).digest('hex').slice(0,24),title,provider,country,countryCode:'',
-    levels:['Undergraduate','Master’s','PhD'].filter(l=>level.includes(l)),
+    levels:[...( /undergraduate|bachelor/i.test(level)?['Undergraduate']:[]),...(/master/i.test(level)?['Master’s']:[]),...(/phd|ph\.?d|dphil|doctoral|doctorate/i.test(level)?['PhD']:[])],
     funding:['Full funding','Full tuition','Need-based','Partial funding','Varies'].includes(funding)?funding:'Not verified',
-    amount:field('Funding details')||'Not verified',description:field('Description')||title,
+    amount:field('Funding details')||'Not verified',description:(field('Description')||title).replace(/[^]*/g,''),
     eligibility:['Confirm current eligibility requirements on the linked provider page.'],benefits:[],
     deadline:field('Deadline')||'Not verified',deadlineDate:null,url,fields:[],
     note:'AI findings may contain errors. Confirm current details with the provider.',checked:result.searchedAt.slice(0,10),
