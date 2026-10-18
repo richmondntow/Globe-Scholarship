@@ -47,3 +47,9 @@ export const savedScholarships = pgTable('saved_scholarships', {
   userId: text('user_id').notNull().references(()=>authUsers.id,{onDelete:'cascade'}), scholarshipId: text('scholarship_id').notNull(),
   savedAt: text('saved_at').notNull(),
 }, t => [primaryKey({columns:[t.userId,t.scholarshipId]})]);
+
+export const discoveredCatalog = pgTable('discovered_catalog', {
+ id: text('id').primaryKey(), identityKey: text('identity_key').notNull().unique(),
+ sourceUrl: text('source_url').notNull().unique(), record: text('record').notNull(),
+ discoveredAt: text('discovered_at').notNull(),
+});

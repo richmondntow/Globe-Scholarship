@@ -5,6 +5,7 @@ import { database } from '../../../db/store';
 import { json,validWrite } from '../../../lib/security';
 import { discoverScholarships,validateWebInput,WebSearchError } from '../../../lib/web-search';
 
+import { addDiscoveries } from '../../../lib/catalog-store';
 export const maxDuration=30;
 // Atomic counters remain effective across concurrent serverless instances.
 async function consume(key:string,windowMs:number,limit:number){
@@ -24,7 +25,10 @@ export async function POST(request:Request){
  if(!process.env.OPENAI_API_KEY)return json({error:'Web search is not connected yet. You can still search the catalog.'},503);
  try{
   if(!await consume('web-minute:'+user.userId,60000,3)||!await consume('web-day:'+user.userId,86400000,10)||!await consume('web-site-day',86400000,100))return json({error:'Web search limit reached. Try again later or search the catalog.'},429);
-  return json(await discoverScholarships(input));
+  const result=await discoverScholarships(input);
+  try{result.catalogUpdate=await addDiscoveries(result);}
+  catch{console.warn('Catalog discovery persistence failed');result.catalogUpdate={added:0,existing:0,skipped:false,failed:true};}
+  return json(result);
  }catch(e){
   if(e instanceof Error&&(e.name==='TimeoutError'||e.name==='AbortError'))return json({error:'The web search took too long. Try a narrower search with one destination and study level.'},504);
   console.warn('Scholarship web discovery failed:',e instanceof WebSearchError?e.code:'internal_or_incomplete');

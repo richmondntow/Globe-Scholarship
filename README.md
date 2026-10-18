@@ -11,13 +11,14 @@ The [original website address](https://globescholarship-ai.richmondntow303.chatg
 ## Features
 
 - **Explore the globe:** select destinations through the Three.js/D3 globe or accessible country selector.
-- **Search the catalog:** semantic search over 14 curated scholarship opportunities across nine destinations.
+- **Search the catalog:** semantic search over 14 original curated scholarship opportunities plus a growing set of AI discovered entries.
 - **Discover scholarships on the web:** OpenAI Responses web search returns up to three findings with clickable source citations, funding information, application deadlines and GPA requirements when supported by sources.
+- **A growing shared catalog:** successful web searches automatically add new cited scholarship entries tagged **AI discovered**. Entries persist in PostgreSQL, appear in catalog search, and can be saved to a personal collection. Duplicate identities and source URLs are skipped; curated entries are preserved. Missing required details or citations are skipped, and database failures are reported without hiding web findings.
 - **GPA information:** enter a GPA on a 4.0 scale; invalid values are rejected. Catalog numerical GPA requirements are unverified, so GPA does not filter catalog results or confirm eligibility.
 - **Refine results:** destination, study level, funding, and deadline status controls.
 - **Keep a collection:** account-specific saved scholarships and study profiles stored in PostgreSQL.
 
-AI findings can contain errors. Confirm current deadlines, funding, and eligibility on official provider websites before applying. Web findings are displayed separately from saved catalog scholarships.
+AI findings can contain errors. Confirm current deadlines, funding, and eligibility on official provider websites before applying. AI discovered catalog entries retain a source link and discovery date. Adding to the shared catalog does not automatically add a scholarship to anyone’s personal saved collection.
 
 ## Run locally
 

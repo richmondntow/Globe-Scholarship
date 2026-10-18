@@ -50,3 +50,11 @@ The catalog contains 14 curated opportunities across nine destinations, reviewed
 Better Auth stores scrypt password hashes and signed HttpOnly session cookies. The server enforces each account's access to its own profile and saved scholarships. Production cookies require HTTPS, write requests must match the configured origin, and authentication rate limits persist in PostgreSQL. Email verification and password-reset email delivery are not configured.
 
 The original deployed site's account table was empty when checked during migration preparation. No credentials, sessions, profiles, or saved-user data are included in this repository. Netlify Database has been provisioned and its migration applied. Hosted login, GPA validation, save persistence and AI web discovery have been verified. Legacy Sites account data is not automatically migrated.
+
+## Automatic catalog growth
+
+Successful web discovery extracts up to three scholarship records with cited HTTPS source links and required names, providers, and destinations. Migration `0002_discovered_catalog.sql` stores these records in shared PostgreSQL storage with the exact badge **AI discovered**, a source URL, and discovery timestamp. The catalog combines these records with the original curated file. New records use the existing search model to embed their text at search time; they can be filtered, viewed, and saved through the usual account flow.
+
+Unique scholarship identity and canonical source URL constraints prevent repeated and concurrent searches from inserting duplicates. Existing curated records are never overwritten. Invalid or uncited entries are skipped. If persistence fails, the web findings remain visible with a clear message. Search preferences, GPA, user IDs and account details are not stored in the shared catalog. AI text is rendered as text, never HTML.
+
+Run `node scripts/test-discovered-catalog.mjs` for extraction, ranking, real database migration and concurrent persistence checks (Node 22.15+ for test loader hooks), `node scripts/validate-discovery.mjs` for 12 end-to-end checks through the actual HTTP routes with a local provider fixture, plus `pnpm validate:core` for 50 existing authenticated API checks.

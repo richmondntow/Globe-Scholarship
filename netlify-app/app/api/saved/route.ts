@@ -2,7 +2,7 @@ import { getSiteUser } from '../../../lib/auth';
 import { and,eq,desc } from 'drizzle-orm';
 import { savedScholarships } from '../../../db/schema';
 import { database } from '../../../db/store';
-import { scholarships } from '../../../lib/catalog';
+import { loadCatalog } from '../../../lib/catalog-store';
 import { validWrite,json } from '../../../lib/security';
 export async function GET(request:Request) {
  const user=await getSiteUser(request.headers);if(!user)return json({error:'Sign in to see your saved scholarships.'},401);
@@ -13,7 +13,7 @@ async function mutate(request:Request,remove:boolean){
  const user=await getSiteUser(request.headers);if(!user)return json({error:'Sign in to save scholarships.'},401);
  if(!validWrite(request))return json({error:'Invalid request.'},403);
  let id:unknown;try{id=(await request.json() as {id:unknown}).id;}catch{return json({error:'Invalid scholarship.'},400);}
- if(typeof id!=='string'||!scholarships.some(x=>x.id===id))return json({error:'Scholarship not found.'},404);
+ if(typeof id!=='string'||!(await loadCatalog()).some(x=>x.id===id))return json({error:'Scholarship not found.'},404);
  try{
   const db=database();
   if(remove)await db.delete(savedScholarships).where(and(eq(savedScholarships.userId,user.userId),eq(savedScholarships.scholarshipId,id)));
